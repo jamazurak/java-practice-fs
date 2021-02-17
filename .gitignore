@@ -24,6 +24,7 @@ hs_err_pid*
 
 # IntelliJ service files
 .idea/**
+*.iml
 
 # Artifacts
 target/**
