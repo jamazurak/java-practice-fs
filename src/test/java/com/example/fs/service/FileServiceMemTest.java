@@ -2,7 +2,6 @@ package com.example.fs.service;
 
 import com.google.common.jimfs.Configuration;
 import com.google.common.jimfs.Jimfs;
-import com.google.common.jimfs.PathType;
 import de.svenjacobs.loremipsum.LoremIpsum;
 import lombok.extern.slf4j.Slf4j;
 import org.example.fs.service.FileService;
@@ -19,7 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Slf4j
-public class FileServiceTest {
+public class FileServiceMemTest {
 
     public static final int BIG_AMOUNT = 1000000;
 
@@ -40,7 +39,7 @@ public class FileServiceTest {
         FileService service = new FileServiceImpl();
         String lorem = LOREM_IPSUM.getParagraphs(BIG_AMOUNT);
         FileSystem fsMem = Jimfs.newFileSystem(
-            Configuration.windows().toBuilder()
+            Configuration.unix().toBuilder()
                 .setMaxSize(8192 * 1048576L)
                 .build()
         );
